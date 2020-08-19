@@ -42,3 +42,21 @@ Server can be run with node using `npm run dev`.
 ### Contribute
 
 Feel free to improve and submit pull requests on this repo. Questions, comments and suggestions are also welcome. This is a starter repo I will be using for building out a MVP.
+
+#### Screenshots
+
+### Register
+
+![Register](./imgs/register.png)
+
+### Login
+
+![Login](./imgs/login.png)
+
+### Account
+
+![Account](./imgs/account.png)
+
+### Admin
+
+![Admin](./imgs/admin.png)
