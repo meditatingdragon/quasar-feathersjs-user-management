@@ -21,7 +21,7 @@ The frontend is built with [Quasar](https://quasar.dev), a [Vue.js](https://vuej
 
 #### Quasar Frontend
 
-The frontend is a starter. You will want to customize to your brand/color/theme. View the [Quasar Docs](https://quasar.dev) to learn more about how to add your own brand. The `boot/axios` file may need to be updated based on the endpoint you are targetting.
+The frontend is a starter. You will want to customize to your brand/color/theme. View the [Quasar Docs](https://quasar.dev) to learn more about how to add your own brand. The `boot/axios` and `boot/feathersClient` files may need to be updated based on the endpoint you are targetting.
 
 #### FeathersJS Backend
 
