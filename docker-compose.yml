@@ -1,0 +1,37 @@
+version: '3.3'
+services:
+  app:
+    image: node:lts-alpine
+    working_dir: /client
+    volumes:
+      - ./client:/client
+    ports:
+      - 8080:8080
+    command: >
+      sh -c "npm install -g @quasar/cli && npm install &&
+             quasar dev"
+
+  server:
+    image: node:lts-alpine
+    working_dir: /server
+    volumes:
+      - ./server:/server
+    ports:
+      - 3030:3030
+    depends_on:
+      - mongo
+    # NODE_ENV variable is used by feathersjs to determine which config
+    # file to merge with the default.json file. Update as needed.
+    environment:
+      NODE_ENV: dev
+    command: >
+      sh -c "npm install && npm run dev"
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_container:/data/db
+volumes:
+  mongodb_container:

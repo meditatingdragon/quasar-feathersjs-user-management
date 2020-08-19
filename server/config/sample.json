@@ -1,0 +1,9 @@
+{
+  "mongodb": "mongodb://mongo:27017/api",
+  "smtp_user": "update_to_aws_smtp_user",
+  "smtp_pw": "update_to_aws_smtp_pw",
+  "from_email": "no-reply@test.com",
+  "client_url": "http://localhost:8080",
+  "api_url": "http://localhost:3030/",
+  "smtp_host": "aws_smtp_host"
+}

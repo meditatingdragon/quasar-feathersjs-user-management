@@ -1,0 +1,76 @@
+{
+  "name": "api-v-2",
+  "description": "",
+  "version": "0.0.0",
+  "homepage": "",
+  "private": true,
+  "main": "src",
+  "keywords": [
+    "feathers"
+  ],
+  "author": {
+    "name": "Rachel",
+    "email": "hello@rachelcheuk.com"
+  },
+  "contributors": [],
+  "bugs": {},
+  "directories": {
+    "lib": "src",
+    "test": "test/",
+    "config": "config/"
+  },
+  "engines": {
+    "node": "^13.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "scripts": {
+    "test": "npm run lint && npm run jest",
+    "lint": "eslint src/. test/. --config .eslintrc.json --fix",
+    "dev": "nodemon src/",
+    "start": "node src/",
+    "jest": "jest  --forceExit"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "ignore": []
+  },
+  "dependencies": {
+    "@feathers-plus/validate-joi": "^3.4.0",
+    "@feathersjs/authentication": "^4.5.6",
+    "@feathersjs/authentication-local": "^4.5.6",
+    "@feathersjs/authentication-oauth": "^4.5.6",
+    "@feathersjs/configuration": "^4.5.5",
+    "@feathersjs/errors": "^4.5.5",
+    "@feathersjs/express": "^4.5.6",
+    "@feathersjs/feathers": "^4.5.5",
+    "@feathersjs/socketio": "^4.5.6",
+    "@feathersjs/transport-commons": "^4.5.5",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "feathers-authentication-hooks": "^1.0.2",
+    "feathers-authentication-management": "^3.0.0",
+    "feathers-mailer": "^3.0.1",
+    "feathers-mongoose": "^8.3.1",
+    "feathers-permissions": "^2.0.2",
+    "helmet": "^3.23.3",
+    "mongodb-core": "^3.2.7",
+    "mongoose": "^5.9.25",
+    "nodemailer-smtp-transport": "^2.7.4",
+    "prettier": "^2.0.5",
+    "serve-favicon": "^2.5.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "axios": "^0.19.2",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.0",
+    "jest": "^26.1.0",
+    "nodemon": "^2.0.4"
+  }
+}
