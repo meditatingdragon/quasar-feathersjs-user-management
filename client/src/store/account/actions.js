@@ -57,13 +57,22 @@ export async function updateProfile(context, payload) {
 }
 
 export async function forgotPassword(context, payload) {
-  return userService.forgotPassword(payload.emailAddress).catch(err => {
-    Notify.create({
-      message:
-        "There was an error processing your request. If this problem persists, contact support.",
-      color: "negative"
+  return userService
+    .forgotPassword(payload.emailAddress)
+    .then(() => {
+      Notify.create({
+        message: "Password reset sent.",
+        color: "positive",
+        icon: "fas fa-check"
+      });
+    })
+    .catch(err => {
+      Notify.create({
+        message:
+          "There was an error processing your request. If this problem persists, contact support.",
+        color: "negative"
+      });
     });
-  });
 }
 
 export async function resetPassword(context, payload) {
@@ -81,7 +90,7 @@ export async function updatePassword(context, payload) {
   }
 }
 
-export async function updatePasswordFromProfile(context, payload) {
+export async function updatePasswordFromProfile({ dispatch }, payload) {
   let result = await userService
     .updatePasswordFromProfile(
       payload.email,
@@ -100,6 +109,7 @@ export async function updatePasswordFromProfile(context, payload) {
       message: "Password update successful.",
       color: "positive"
     });
+    dispatch("auth/logout", null, { root: true });
   }
 }
 

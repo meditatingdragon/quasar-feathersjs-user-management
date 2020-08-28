@@ -409,13 +409,6 @@ export default {
       this.$store
         .dispatch("account/forgotPassword", {
           emailAddress: email
-        })
-        .then(() => {
-          this.$q.notify({
-            message: "Password reset sent.",
-            color: "positive",
-            icon: "fas fa-check"
-          });
         });
     },
     async deactiveateUser(user) {

@@ -68,12 +68,6 @@ export default {
           emailAddress: this.resetEmail
         })
         .then(() => {
-          this.$q.notify({
-            message:
-              "Password reset sent. Check your email for futher instructions.",
-            color: "positive",
-            icon: "fas fa-check"
-          });
           this.$router.push("/login");
         });
     }

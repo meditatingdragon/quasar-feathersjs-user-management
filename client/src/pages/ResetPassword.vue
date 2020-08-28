@@ -124,7 +124,6 @@ export default {
           .catch(err => {
             if (err.response) {
               let code = err.response.data.code;
-              console.log("code", code);
               Notify.create({
                 message: "Unable to verify account. Please contact support.",
                 color: "negative"

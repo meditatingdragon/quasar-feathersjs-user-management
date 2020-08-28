@@ -10,10 +10,8 @@ const accountService = require('../auth-management/notifier');
 const {
   disallow,
   iff,
-  iffElse,
   isProvider,
   preventChanges,
-  discard,
 } = require('feathers-hooks-common');
 
 const {
@@ -182,7 +180,7 @@ module.exports = {
       (context) => {
         accountService(context.app).notifier(
           'resendVerifySignup',
-          context.result
+          context.data
         );
       },
       verifyHooks.removeVerification(),
