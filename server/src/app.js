@@ -24,19 +24,26 @@ const app = express(feathers());
 // Load app configuration
 app.configure(configuration());
 // Enable security, CORS, compression, favicon and body parsing
-const whitelist = [app.get('client_url')];
-var corsOptions = {
-  origin: function (origin, callback) {
+const whitelist = [app.get('client_url')] || [process.env.client_url];
+
+const corsOptions = {
+  origin: (origin, callback) => {
     if (whitelist.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      callback(new Error('Not allowed by CORS: ' + origin));
     }
   },
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
 };
 app.use(helmet());
+app.options('*', cors(corsOptions));
 app.use(cors(corsOptions));
+
 app.use(compress());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
